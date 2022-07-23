@@ -41,7 +41,7 @@ class Topic
 
     public function __construct()
     {
-        $this->messages = new ArrayCollection();
+
     }
 
     public function getId(): ?int

@@ -17,13 +17,6 @@ class ForumController extends AbstractController
      */
     public function index(EntityManagerInterface $em): Response
     {
-        /*$topic = new Topic();
-        $topic->setDate(new \DateTime('12-02-2022'));
-        $topic->setTitle('Topic');
-        $topic->setContent('dsofhksdhfksdlif');
-        $topic->setUsername('Worgen');
-        $em->persist($topic);
-        $em->flush();*/
 
         $topics = $em->getRepository(Topic::class)->findAll();
 
@@ -39,7 +32,7 @@ class ForumController extends AbstractController
     {
 
         $topic = $em->getRepository(Topic::class)->findOneBy(['id' => $id]);
-        $messages = $em->getRepository(Message::class)->findBy(['topic' => $id]);
+        $messages = $em->getRepository(Message::class)->findBy(['topic_id' => $id]);
 
         return $this->render('forum/topic.html.twig', [
             'topic' => $topic,
@@ -81,12 +74,11 @@ class ForumController extends AbstractController
     {
         $username = $request->request->get('username');
         $content = $request->request->get('content');
-        $topic = $em->getRepository(Topic::class)->findOneBy(['id' => $id]);
 
         $message = new Message();
         $message->setUsername($username);
         $message->setContent($content);
-        $message->setTopic($topic);
+        $message->setTopic($id);
         $message->setDate(new \DateTime(date('d-m-y')));
 
         $em->persist($message);

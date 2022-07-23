@@ -33,9 +33,9 @@ class Message
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Topic::class, inversedBy="messages")
+    @ORM\Column(type="integer")
      */
-    private $topic;
+    private $topic_id;
 
     public function getId(): ?int
     {
@@ -78,14 +78,14 @@ class Message
         return $this;
     }
 
-    public function getTopic(): ?Topic
+    public function getTopic(): ?int
     {
-        return $this->topic;
+        return $this->topic_id;
     }
 
-    public function setTopic(?Topic $topic): self
+    public function setTopic(int $topic): self
     {
-        $this->topic = $topic;
+        $this->topic_id = $topic;
 
         return $this;
     }

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ForumController!{% endblock %}
+
+{% block body %}
+
+    <form action="{{ path('add_topic') }}" method="post" name="add_topic">
+
+        <input type="text" name="username" placeholder="username" id="username" />
+        <input type="text" name="title" placeholder="title" id="title" />
+        <input type="text" name="content" placeholder="content" id="content" />
+
+        <button type="submit">Envoyer</button>
+    </form>
+
+{% endblock %}

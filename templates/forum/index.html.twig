@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ForumController!{% endblock %}
+
+{% block body %}
+    {% for topic in topics %}
+
+<a href="{{ path('view', {'id': topic.id }) }}" style="color: black; text-decoration: none">
+        <div class="card w-75 mx-auto mb-3" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title">{{ topic.title ? topic.title : '' }}</h3>
+
+                <div style="margin: auto;" class="w-75 rounded mb-3">
+                    <h3>{{ topic.username ? topic.username : '' }}</h3>
+                    <h3>{{ topic.content ? topic.content : '' }}</h3>
+                    <h5>{{ topic.date ? topic.date | date('d-m-y') : '' }}</h5>
+                </div>
+
+
+
+            </div>
+        </div>
+</a>
+
+
+    {% endfor %}
+{% endblock %}

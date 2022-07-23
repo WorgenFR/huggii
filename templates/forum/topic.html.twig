@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ForumController!{% endblock %}
+
+{% block body %}
+        <div style="background-color: #5eb5e0; width: 75%; margin: auto;">
+            <h1>{{ topic.title ? topic.title : '' }}</h1>
+            <h3>{{ topic.username ? topic.username : '' }}</h3>
+            <h3>{{ topic.content ? topic.content : '' }}</h3>
+            <h5>{{ topic.date ? topic.date | date('d-m-y') : '' }}</h5>
+        </div>
+
+    {% for message in messages %}
+        <div style="background-color: lightblue; width: 75%; margin: auto">
+            <h3>{{ message.username }}</h3>
+            <h4>{{ message.content }}</h4>
+            <h5>{{ message.date | date('d-m-y') }}</h5>
+        </div>
+    {% endfor %}
+
+<button style="margin-left: 10%"><a href="{{ path('new_message', {'id': topic.id}) }}">Répondre</a></button>
+{% endblock %}

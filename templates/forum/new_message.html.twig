@@ -4,12 +4,15 @@
 
 {% block body %}
 
-    <form action="{{ path('add_message', {'id': id}) }}" method="post" name="add_message">
 
-        <input type="text" name="username" placeholder="username" id="username" />
-        <input type="text" name="content" placeholder="content" id="content" />
+    <form action="{{ path('add_message', {'id': id}) }}" method="post" name="add_message" class="col" style="margin-left: 30%">
 
-        <button type="submit">Envoyer</button>
+        <label for="username" style="margin-left: 10%">Username</label>
+        <input type="text" name="username" placeholder="Saisissez un nom..." id="username" class="row form-control w-25" style="margin-left: 10%" />
+        <label for="content">Contenu</label>
+        <input type="text" name="content" placeholder="Ecrivez du texte..." id="content" class="row  form-control w-50" style="height: 100px" />
+
+        <button type="submit" class="btn btn-success mt-3" style="margin-left: 20%">Envoyer</button>
     </form>
 
 {% endblock %}

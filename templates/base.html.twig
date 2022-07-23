@@ -15,21 +15,21 @@
     {#  {{ encore_entry_script_tags('app') }}#}
     {% endblock %}
 </head>
-<body class="m-0" style="background-color: #f4ebd2">
+<body class="m-0" style="background-color: #f4ebd2;">
 <header style=" height: 60px" class="row bg-white">
-    <a class="col" href="{{ path('home') }}"><img src="https://www.zupimages.net/up/22/29/2br8.png"/></a>
+    <a class="col-3" style="margin-left: 2%" href="{{ path('home') }}"><img src="https://www.zupimages.net/up/22/29/2br8.png"/></a>
     <a class="btn btn-sm border col-1 mt-2 pt-2" style="width: 8%; height: 40px" href="{{ path('new_topic') }}">Créer un
         topic</a>
-    <form method="post" name="search" action="{{ path('search') }}" class="col">
+    <form method="post" name="search" action="{{ path('search') }}" class="col" style="margin-left: 1%">
         <div class="row mt-2">
             <input class="form-control w-50" id="search" name="search"
                    placeholder="Recherchez un titre de topic..."/>
-            <button class="col-1 btn border" type="submit"><i class="bi bi-search"></i></button>
+            <button class="col-1 btn border" type="submit" style="margin-left: 1%"><i class="bi bi-search"></i></button>
         </div>
     </form>
     <hr/>
 </header>
-<main class="w-75 mx-auto pt-3 bg-white">
+<main class="w-75 mx-auto pt-3 bg-white" style="min-height: 1000px">
     {% block body %}{% endblock %}
 </main>
 </body>

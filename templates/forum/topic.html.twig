@@ -3,20 +3,46 @@
 {% block title %}Hello ForumController!{% endblock %}
 
 {% block body %}
-        <div style="background-color: #5eb5e0; width: 75%; margin: auto;">
-            <h1>{{ topic.title ? topic.title : '' }}</h1>
-            <h3>{{ topic.username ? topic.username : '' }}</h3>
-            <h3>{{ topic.content ? topic.content : '' }}</h3>
-            <h5>{{ topic.date ? topic.date | date('d-m-y') : '' }}</h5>
+
+    <button class="btn btn-success mb-3" style="margin-left: 13%"><a class="text-white text-decoration-none" href="{{ path('new_message', {'id': topic.id}) }}">Répondre au sujet</a></button>
+
+    <div class="card w-75 mx-auto mb-3" style="width: 18rem; background-color: #dfdfdf">
+        <div class="card-header row">
+            <h3 class="col">{{ topic.title ? topic.title : '' }}</h3>
+            <div class="bg-white col-1 rounded" style="height: 30px"><span>{{ topic.date ? topic.date | date('d-m-y') : '' }}</span></div>
         </div>
+        <div class="card-body">
+            <div style="" class=" rounded mb-3">
+                <div class="row mb-3">
+                    <div class="col-1"><img width="40" src="https://toppng.com/public/uploads/thumbnail/instagram-default-profile-picture-11562973083jyanpiuxw9.png"/></div>
+                    <h4 class="col mt-2">{{ topic.username ? topic.username : '' }}</h4>
+                </div>
+                <div class="bg-white w-100 rounded py-1" style="border: lightgray 1px solid">
+                    <p style="margin-left: 10px">{{ topic.content ? topic.content : '' }}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     {% for message in messages %}
-        <div style="background-color: lightblue; width: 75%; margin: auto">
-            <h3>{{ message.username }}</h3>
-            <h4>{{ message.content }}</h4>
-            <h5>{{ message.date | date('d-m-y') }}</h5>
+
+
+        <div class="card w-75 mx-auto mb-3" style="width: 18rem; background-color: #dfdfdf">
+            <div class="card-header row">
+                <h3 class="col">{{ message.username }}</h3>
+                <div class="bg-white col-1 rounded" style="height: 30px"><span>{{ message.date ? message.date | date('d-m-y') : '' }}</span></div>
+            </div>
+            <div class="card-body">
+                <div style="" class=" rounded mb-3">
+                    <div class="bg-white w-100 rounded py-1" style="border: lightgray 1px solid">
+                        <p style="margin-left: 10px">{{ message.content ? message.content : '' }}</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
     {% endfor %}
 
-<button style="margin-left: 10%"><a href="{{ path('new_message', {'id': topic.id}) }}">Répondre</a></button>
 {% endblock %}

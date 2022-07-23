@@ -33,7 +33,7 @@ class ForumController extends AbstractController
     }
 
     /**
-     * @Route("view/{id}", name="view")
+     * @Route("view/{id}", name="view", options={"expose"=true})
      */
     public function view($id, EntityManagerInterface $em): Response
     {
@@ -49,7 +49,7 @@ class ForumController extends AbstractController
 
 
     /**
-     * @Route("new_message/{id}", name="new_message")
+     * @Route("new_message/{id}", name="new_message", options={"expose"=true})
      */
     public function new_message($id, EntityManagerInterface $em): Response
     {
@@ -62,7 +62,7 @@ class ForumController extends AbstractController
     }
 
     /**
-     * @Route("new_topic/", name="new_topic")
+     * @Route("new_topic/", name="new_topic", options={"expose"=true})
      */
     public function new_topic(EntityManagerInterface $em): Response
     {
@@ -75,7 +75,7 @@ class ForumController extends AbstractController
 
 
     /**
-     * @Route("add_message/{id}", name="add_message")
+     * @Route("add_message/{id}", name="add_message", options={"expose"=true})
      */
     public function add_message($id, EntityManagerInterface $em, Request $request): Response
     {
@@ -97,7 +97,7 @@ class ForumController extends AbstractController
 
 
     /**
-     * @Route("add_topic/", name="add_topic")
+     * @Route("add_topic/", name="add_topic", options={"expose"=true})
      */
     public function add_topic(EntityManagerInterface $em, Request $request): Response
     {
@@ -123,7 +123,7 @@ class ForumController extends AbstractController
 
 
     /**
-     * @Route("search/", name="search")
+     * @Route("search/", name="search", options={"expose"=true})
      */
     public function search(EntityManagerInterface $em, Request $request): Response
     {

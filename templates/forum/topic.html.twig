@@ -6,7 +6,7 @@
 
     <button class="btn btn-success mb-3" style="margin-left: 13%"><a class="text-white text-decoration-none" href="{{ path('new_message', {'id': topic.id}) }}">Répondre au sujet</a></button>
 
-    <div class="card w-75 mx-auto mb-3" style="width: 18rem; background-color: #dfdfdf">
+    <div class="card w-75 mx-auto mb-3">
         <div class="card-header row">
             <h3 class="col">{{ topic.title ? topic.title : '' }}</h3>
             <div class="bg-white col-1 rounded" style="height: 30px"><span>{{ topic.date ? topic.date | date('d-m-y') : '' }}</span></div>
@@ -17,7 +17,7 @@
                     <div class="col-1"><img width="40" src="https://toppng.com/public/uploads/thumbnail/instagram-default-profile-picture-11562973083jyanpiuxw9.png"/></div>
                     <h4 class="col mt-2">{{ topic.username ? topic.username : '' }}</h4>
                 </div>
-                <div class="bg-white w-100 rounded py-1" style="border: lightgray 1px solid">
+                <div class="bg-white w-100 rounded py-1 content">
                     <p style="margin-left: 10px">{{ topic.content ? topic.content : '' }}</p>
                 </div>
             </div>
@@ -28,14 +28,14 @@
     {% for message in messages %}
 
 
-        <div class="card w-75 mx-auto mb-3" style="width: 18rem; background-color: #dfdfdf">
+        <div class="card w-75 mx-auto mb-3 card-message">
             <div class="card-header row">
                 <h3 class="col">{{ message.username }}</h3>
                 <div class="bg-white col-1 rounded" style="height: 30px"><span>{{ message.date ? message.date | date('d-m-y') : '' }}</span></div>
             </div>
             <div class="card-body">
                 <div style="" class=" rounded mb-3">
-                    <div class="bg-white w-100 rounded py-1" style="border: lightgray 1px solid">
+                    <div class="bg-white w-100 rounded py-1 content">
                         <p style="margin-left: 10px">{{ message.content ? message.content : '' }}</p>
                     </div>
                 </div>

@@ -124,7 +124,7 @@ class ForumController extends AbstractController
     public function search(EntityManagerInterface $em, Request $request): Response
     {
         $search = $request->request->get('search');
-        $topics = $em->getRepository(Topic::class)->findBy(['title' => $search]);
+        $topics = $em->getRepository(Topic::class)->getTopicSearch($search);
         return $this->render('forum/search.html.twig', [
             'topics' => $topics
         ]);

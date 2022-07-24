@@ -42,6 +42,12 @@ class Message
         return $this->id;
     }
 
+    public function setId(int $id): ?int
+    {
+        $this->id = $id;
+        return $this->id;
+    }
+
     public function getContent(): ?string
     {
         return $this->content;

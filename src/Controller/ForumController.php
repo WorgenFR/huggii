@@ -74,8 +74,10 @@ class ForumController extends AbstractController
     {
         $username = $request->request->get('username');
         $content = $request->request->get('content');
+        $messages = $em->getRepository(Message::class)->findAll();
 
         $message = new Message();
+        $message->setId(count($messages) + 1); //Besoin de set l'id suite à un pb de base en prod
         $message->setUsername($username);
         $message->setContent($content);
         $message->setTopic($id);
@@ -96,8 +98,10 @@ class ForumController extends AbstractController
         $username = $request->request->get('username');
         $content = $request->request->get('content');
         $title = $request->request->get('title');
+        $topics = $em->getRepository(Topic::class)->findAll();
 
         $topic = new Topic();
+        $topic->setId(count($topics) + 1); //Besoin de set l'id suite à un pb de base en prod
         $topic->setUsername($username);
         $topic->setContent($content);
         $topic->setTitle($title);
